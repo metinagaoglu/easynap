@@ -6,8 +6,10 @@ const mongoose = require('mongoose');
 
 const resolvers = require('./graphql/resolvers/index');
 
+
+
 const server = new ApolloServer({
-    typeDefs: importSchema('./graphql/types/schema.graphql'),
+    typeDefs: importSchema('./graphql/schema.graphql'),
     resolvers
 });
 
