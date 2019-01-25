@@ -6,11 +6,14 @@ const mongoose = require('mongoose');
 
 const resolvers = require('./graphql/resolvers/index');
 
-
+const User = require('./models/User');
 
 const server = new ApolloServer({
     typeDefs: importSchema('./graphql/schema.graphql'),
-    resolvers
+    resolvers,
+    context: {
+        User
+    }
 });
 
 mongoose.connect(process.env.DB_URI,{ useNewUrlParser: true })
