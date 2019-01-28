@@ -1,9 +1,9 @@
 const Query = {
-    user:(parent, args) => {
-        return {
-            username: 'Mehmet',
-            created_at: '24.01.2019'
-        }
+    user: async(parent, args, { User }) => {
+        return await User.findById(args.id);
+    },
+    users: async(parent, args , { User }) => {
+        return await User.find({}).sort({ 'created_at':'desc' })
     }
 };
 
