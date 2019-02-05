@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const token = require('../../../helpers/token');
 
 module.exports = {
     createUser: async(parent,{data: { username, password }}, { User }) => {
@@ -8,10 +9,12 @@ module.exports = {
             throw new Error('User already exists');
         }
 
-        return await new User({
+        const newUser = await new User({
             username,
             password
         }).save();
+
+        return { token: token.generate(newUser,'1h') }
     },
 
     signIn: async(parent,{data:{ username,password }}, { User }) => {
