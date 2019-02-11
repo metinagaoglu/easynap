@@ -18,11 +18,11 @@ module.exports = {
 		"windows"
 	],
         "quotes": [
-            "error",
+            "warn",
             "single"
         ],
         "semi": [
-            "error",
+            "warn",
             "always"
         ]
     }
