@@ -19,4 +19,4 @@ test_async:
   script:
    - npm install
    - npm install eslint -g
-   - eslint .
+   - eslint server/.
